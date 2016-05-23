@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'com.novoda.bintray-release'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+publish {
+    groupId = 'de.ulrichraab'
+    artifactId = 'mvp'
+    publishVersion = '1.0.0'
+    desc = 'A Model-View-Presenter (MVP) library for Java'
+    website = 'https://github.com/UlrichRaab/mvp'
+    licences = ['Apache-2.0']
+    issueTracker = 'https://github.com/UlrichRaab/mvp/issues'
+    bintrayUser = properties.getProperty('bintray.user')
+    bintrayKey = properties.getProperty('bintray.apikey')
+    dryRun = false //  If set to true this will run everything but it won't upload the package. If false then it will upload.
+}
+
+dependencies {}
