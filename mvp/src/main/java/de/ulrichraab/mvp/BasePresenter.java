@@ -40,7 +40,7 @@ public abstract class BasePresenter<T extends Ui> implements Presenter<T> {
    private static final Logger LOG = Logger.getLogger(BasePresenter.class.getName());
 
    private WeakReference<T> uiReference;
-   private final T uiProxy;
+   private T uiProxy;
 
    /**
     * Creates a new {@link BasePresenter} instance.
@@ -76,18 +76,24 @@ public abstract class BasePresenter<T extends Ui> implements Presenter<T> {
    }
 
    @Override
-   public void attachUi (T ui) {
-      LOG.info("attachUi(" + ui.getClass().getName() + ")");
+   public void onAttachUi (T ui) {
+      LOG.info("onAttachUi(" + ui.getClass().getName() + ")");
       uiReference = new WeakReference<>(ui);
    }
 
    @Override
-   public void detachUi () {
-      LOG.info("detachUi()");
+   public void onDetachUi () {
+      LOG.info("onDetachUi()");
       if (uiReference != null) {
          uiReference.clear();
       }
       uiReference = null;
+   }
+
+   @Override
+   public void onDestroy () {
+      LOG.info("onDestroy()");
+      uiProxy = null;
    }
 
    /**

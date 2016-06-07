@@ -27,10 +27,15 @@ public interface Presenter<T extends Ui> {
     * Attaches the specified user interface to this presenter.
     * @param ui The user interface to attach.
     */
-   void attachUi (T ui);
+   void onAttachUi (T ui);
 
    /**
     * Detaches the currently attached user interface.
     */
-   void detachUi ();
+   void onDetachUi ();
+
+   /**
+    * TODO Write javadoc
+    */
+   void onDestroy ();
 }
