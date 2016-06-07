@@ -33,4 +33,9 @@ public interface Presenter<T extends Ui> {
     * Detaches the currently attached user interface.
     */
    void onDetachUi ();
+
+   /**
+    * TODO Write javadoc
+    */
+   void onDestroy ();
 }

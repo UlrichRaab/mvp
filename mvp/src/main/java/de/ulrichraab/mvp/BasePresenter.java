@@ -40,7 +40,7 @@ public abstract class BasePresenter<T extends Ui> implements Presenter<T> {
    private static final Logger LOG = Logger.getLogger(BasePresenter.class.getName());
 
    private WeakReference<T> uiReference;
-   private final T uiProxy;
+   private T uiProxy;
 
    /**
     * Creates a new {@link BasePresenter} instance.
@@ -88,6 +88,12 @@ public abstract class BasePresenter<T extends Ui> implements Presenter<T> {
          uiReference.clear();
       }
       uiReference = null;
+   }
+
+   @Override
+   public void onDestroy () {
+      LOG.info("onDestroy()");
+      uiProxy = null;
    }
 
    /**
