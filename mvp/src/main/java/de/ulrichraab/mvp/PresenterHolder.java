@@ -10,7 +10,9 @@ import java.util.logging.Logger;
  * Holder for {@link Presenter} objects.
  * @author Ulrich Raab
  */
-public class PresenterHolder {
+public enum PresenterHolder {
+
+   PRESENTER_HOLDER;
 
    private static final Logger LOG = Logger.getLogger(PresenterHolder.class.getName());
 
@@ -19,7 +21,7 @@ public class PresenterHolder {
    /**
     * Creates a new {@link PresenterHolder} instance.
     */
-   public PresenterHolder () {
+   PresenterHolder () {
       presenters = new HashMap<>();
    }
 

@@ -10,7 +10,7 @@ properties.load(project.rootProject.file('local.properties').newDataInputStream(
 publish {
     groupId = 'de.ulrichraab'
     artifactId = 'mvp'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
     desc = 'A Model-View-Presenter (MVP) library for Java'
     website = 'https://github.com/UlrichRaab/mvp'
     licences = ['Apache-2.0']
