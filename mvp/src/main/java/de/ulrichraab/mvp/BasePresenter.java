@@ -76,14 +76,14 @@ public abstract class BasePresenter<T extends Ui> implements Presenter<T> {
    }
 
    @Override
-   public void attachUi (T ui) {
-      LOG.info("attachUi(" + ui.getClass().getName() + ")");
+   public void onAttachUi (T ui) {
+      LOG.info("onAttachUi(" + ui.getClass().getName() + ")");
       uiReference = new WeakReference<>(ui);
    }
 
    @Override
-   public void detachUi () {
-      LOG.info("detachUi()");
+   public void onDetachUi () {
+      LOG.info("onDetachUi()");
       if (uiReference != null) {
          uiReference.clear();
       }
